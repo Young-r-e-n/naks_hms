@@ -9,9 +9,9 @@ session_start();
 
 // DB connection
 $host = 'localhost';
-$dbname = 'pharmacy_db'; // change as needed
+$dbname = 'pharmacy_db1'; // change as needed
 $user = 'root';       // change as needed
-$pass = '';           // change as needed
+$pass = '!2345678Ab123';           // change as needed
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);

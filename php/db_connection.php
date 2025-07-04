@@ -1,8 +1,8 @@
 <?php
   $SERVER = 'localhost';
   $USERNAME = 'root';
-  $PASSWORD = '';
-  $DB = 'pharmacy_db';
+  $PASSWORD = '!2345678Ab123';
+  $DB = 'pharmacy_db1';
 
 
   @$con = mysqli_connect($SERVER, $USERNAME, $PASSWORD, $DB)
