@@ -73,12 +73,14 @@ function getInvoiceNumber() {
 function medicineOptions(text, id) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if(xhttp.readyState = 4 && xhttp.status == 200)
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
       document.getElementById(id).innerHTML = xhttp.responseText;
+    }
   };
-  xhttp.open("GET", "php/add_new_invoice.php?action=medicine_list&text=" + text.trim(), true);
+  xhttp.open("GET", "php/add_new_invoice.php?action=medicine_list&text=" + encodeURIComponent(text.trim()), true);
   xhttp.send();
 }
+
 
 function fillFields(medicine_name, id) {
   fill(medicine_name, 'batch_id_' + id, 'BATCH_ID');

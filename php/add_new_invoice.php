@@ -69,11 +69,18 @@
     ?>
     <div class="row col col-md-12">
       <div class="col-md-2">
-        <input id="medicine_name_<?php echo $row_number; ?>" name="medicine_name" class="form-control" list="medicine_list_<?php echo $row_number; ?>" placeholder="Select Medicine" onkeydown="medicineOptions(this.value, 'medicine_list_<?php echo $row_number; ?>');" onfocus="medicineOptions(this.value, 'medicine_list_<?php echo $row_number; ?>');" onchange="fillFields(this.value, '<?php echo $row_number; ?>');">
-        <code class="text-danger small font-weight-bold float-right" id="medicine_name_error_<?php echo $row_number; ?>" style="display: none;"></code>
-        <datalist id="medicine_list_<?php echo $row_number; ?>" style="display: none; max-height: 200px; overflow: auto;">
-          <?php showMedicineList("") ?>
-        </datalist>
+        <input
+  id="medicine_name_<?php echo $row_number; ?>"
+  name="medicine_name"
+  class="form-control"
+  list="medicine_list_<?php echo $row_number; ?>"
+  placeholder="Select Medicine"
+  oninput="medicineOptions(this.value, 'medicine_list_<?php echo $row_number; ?>');"
+  onfocus="medicineOptions('', 'medicine_list_<?php echo $row_number; ?>');"
+  onchange="fillFields(this.value, '<?php echo $row_number; ?>');"
+/>
+<datalist id="medicine_list_<?php echo $row_number; ?>"></datalist>
+
       </div>
       <div class="col col-md-2"><input type="text" class="form-control" id="batch_id_<?php echo $row_number; ?>" disabled></div>
       <div class="col col-md-1"><input type="number" class="form-control" id="available_quantity_<?php echo $row_number; ?>" disabled></div>

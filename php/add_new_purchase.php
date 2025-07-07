@@ -105,15 +105,21 @@
           <input type="text" class="form-control" name="packing">
           <code class="text-danger small font-weight-bold float-right" id="pack_error_<?php echo $row_number; ?>" style="display: none;"></code>
         </div>
+
 <!-- Batch ID -->
 <div class="col col-md-2">
+  <!-- Select has NO name -->
   <select class="form-control mb-1" onchange="toggleBatchInput(this, <?php echo $row_number; ?>)">
     <option value="custom" selected>Enter Batch ID</option>
-    <option value="N/A">N/A</option>
+    <option value="na">N/A</option> <!-- value changed to lowercase to avoid confusion -->
   </select>
-  <input type="text" class="form-control" name="batch_id" id="batch_id_<?php echo $row_number; ?>">
+
+  <!-- Only the input has the name used in your backend -->
+  <input type="text" class="form-control" name="batch_id[]" id="batch_id_<?php echo $row_number; ?>">
   <code class="text-danger small font-weight-bold float-right" id="batch_id_error_<?php echo $row_number; ?>" style="display: none;"></code>
 </div>
+
+
 
 <!-- Expiry Date -->
 <div class="col col-md-1">

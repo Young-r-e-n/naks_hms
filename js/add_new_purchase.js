@@ -261,3 +261,23 @@ function addNewPurchase(suppliers_name, invoice_number, payment_type, invoice_da
   xhttp.open("GET", "php/add_new_purchase.php?action=add_new_purchase&suppliers_name=" + suppliers_name + "&invoice_number=" + invoice_number + "&payment_type=" + payment_type + "&invoice_date=" + invoice_date + "&invoice_date=" + invoice_date + "&grand_total=" + grand_total, true);
   xhttp.send();
 }
+
+function toggleBatchInput(select, rowNumber) {
+  const input = document.getElementById(`batch_id_${rowNumber}`);
+  const selectedValue = select.value;
+
+  if (selectedValue === "na") {
+    const generatedID = generateBatchID();
+    input.value = generatedID;
+    input.readOnly = true;
+  } else {
+    input.value = "";
+    input.readOnly = false;
+  }
+}
+
+function generateBatchID() {
+  const timestamp = Date.now(); // e.g. 1720023647890
+  const random = Math.floor(100 + Math.random() * 900); // e.g. 428
+  return `NA${timestamp}${random}`.slice(0, 20); // limit to 20 characters
+}
